@@ -1,49 +1,301 @@
-<!DOCTYPE html>
-<html lang "en">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initia-scale=1.0">
-    <title> My  first site </title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dilshoda — About Me</title>
+  <meta name="description" content="Personal portfolio / about me template" />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ====== Variables ====== */
+    :root{
+      --bg: #0f1724;
+      --card: #0b1120;
+      --muted: #9aa4b2;
+      --accent: #60a5fa; /* blue */
+      --accent-2: #7c3aed; /* purple */
+      --glass: rgba(255,255,255,0.04);
+      --radius: 14px;
+      --max-width: 980px;
+      --ff: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    /* ====== Base ====== */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--ff);
+      background:linear-gradient(180deg,#071023 0%, #07132a 100%);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      padding:24px 18px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .site{
+      width:100%;
+      max-width:var(--max-width);
+    }
+
+    a{color:var(--accent);text-decoration:none}
+    a:hover{opacity:0.9}
+
+    header{
+      display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:26px
+    }
+
+    /* Logo / name */
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{
+      width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex;align-items:center;justify-content:center;font-weight:700;color:#071023;font-size:18px
+    }
+    .brand h1{margin:0;font-size:18px}
+    .brand p{margin:0;color:var(--muted);font-size:13px}
+
+    /* Navigation */
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{color:var(--muted);font-size:14px}
+    .cta{padding:8px 12px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#071023;font-weight:600}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 320px;gap:28px;align-items:center;margin-bottom:28px}
+    .hero-left{background:var(--card);padding:28px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+    .hero-right{display:flex;align-items:center;justify-content:center}
+    .profile-pic{
+      width:260px;height:260px;border-radius:18px;overflow:hidden;background:linear-gradient(180deg, #fff3 0,#0000 100%);
+      border:1px solid rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center
+    }
+    .profile-pic img{width:100%;height:100%;object-fit:cover}
+
+    .intro h2{margin:0 0 8px 0;font-size:26px}
+    .intro p{margin:0;color:var(--muted)}
+
+    .meta{display:flex;gap:12px;margin-top:16px}
+    .pill{background:var(--glass);padding:8px 12px;border-radius:999px;color:var(--muted);font-size:13px}
+
+    /* Cards */
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-bottom:22px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.03)}
+
+    .skills-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .skill{padding:8px 10px;border-radius:10px;background:#071428;color:var(--muted);font-size:13px}
+
+    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .proj{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .proj h4{margin:0 0 8px 0}
+    .proj p{margin:0;color:var(--muted);font-size:13px}
+
+    /* Contact */
+    .contact{display:flex;flex-direction:column;gap:12px}
+    input,textarea{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.05);background:transparent;color:inherit}
+    .btn{padding:10px 14px;border-radius:10px;border:none;font-weight:600;cursor:pointer;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#071023}
+
+    footer{margin-top:20px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* Mobile */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .grid{grid-template-columns:1fr}
+      .projects{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:520px){
+      body{padding:16px}
+      nav{display:none}
+      header{align-items:flex-start;flex-direction:column;gap:8px}
+      .brand h1{font-size:16px}
+      .projects{grid-template-columns:1fr}
+    }
+
+    /* little utilities */
+    .muted{color:var(--muted)}
+    .stack{display:flex;gap:8px;flex-wrap:wrap}
+  </style>
 </head>
-<body style="background-color: rgb(46, 1, 1);">
-    <h1 style="color: rgb(230, 188, 98); font-family: Georgia, 'Times New Roman', Times, serif;"> About Boboqulova Dilshoda 🙋🏼‍♀️ </h1>
+<body>
+  <div class="site">
+    <header>
+      <div class="brand">
+        <div class="logo">✨🌙</div>
+        <div>
+          <h1>Mooneliya</h1>
+          <p class="muted">•Developer •Learner •Animation designer •Creative soul</p>
+        </div>
+      </div>
 
-    <h2 style="color: rgb(230,188,98); font-family: Georgia, 'Times New Roman', Times, serif;"> Basic information about me🩵 </h2>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact" class="cta">Contact</a>
+      </nav>
+    </header>
 
+    <main>
+      <section class="hero">
+        <div class="hero-left">
+          <div class="intro">
+            <h2>Hi — I'm <strong>Dilshoda</strong></h2>
+            <p class="muted">I am a Computer science student at INHA University in Tashkent, dedicated to transforming my creative ideas into reality!</p>
 
-    <p style="color: rgb(255, 255, 255); font-style: italic;">Hello my name is Dilshoda and i am 18 years old. And I am going to provide some basic information about myself below. </p>
-    
-    <h2 style="color: rgb(230,188,98); font-family: Georgia, 'Times New Roman', Times, serif;"> The list of classes I am taking at IUT </h2>
+            <div class="meta">
+              <div class="pill">📍 Tashkent, Uzbekistan</div>
+              <div class="pill">🎓 Computer Science</div>
+              <div class="pill">💼 Open to Collaboration</div>
+            </div>
 
-    <P style="color: rgb(255, 255, 255); font-style: italic;">📌OOP (object oriented programming )</P>
-    <p style="color: rgb(255, 255, 255); font-style: italic;">📌IT (introduction to IT)</p>
-    <P style="color: rgb(255, 255, 255); font-style: italic;">📌 AER (academic english reading)</P>
-    <p style="color: rgb(255, 255, 255);font-style: italic;">📌AE (academic english)</p>
-    <p style="color: rgb(255, 255, 255); font-style: italic;">📌CAL1 (calculus 1 )</p>
-    <p style="color: rgb(255, 253, 253); font-style: italic;">📌PHYSICS</p>
-    <P style="color: rgb(255, 255, 255); font-style: italic;">📌PHYSICS EXPERIMENT</P>
+            <div style="margin-top:18px;display:flex;gap:10px;align-items:center">
+              <a href="#projects" class="btn">See projects</a>
+              <a href="/resume.pdf" class="pill">Download CV</a>
+            </div>
 
+            <div style="margin-top:18px" id="socials">
+              <div class="stack">
+                <a href="https://www.instagram.com/moon_eliya?igsh=c2R6Zzdycm1hanpy">Instagram</a>
+                <a href="https://www.linkedin.com/in/dilshoda-boboqulova-99690636b?utm_source=share_via&utm_content=profile&utm_medium=member_android">LinkedIn</a>
+                <a href="mailto:dilshodaboboqulova07@gmail.com">Email</a>
+                <a href="https://t.me/mindlabX_admin">Telegram</a>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    <h2 style="color: rgb(230,188, 98); font-family: Georgia, 'Times New Roman', Times, serif;"> My top 3 favorite movies</h2>
+        <div class="hero-right">
+          <div class="profile-pic">
+            <!-- Replace with your image -->
+            <img src="photo_2025-11-29_00-28-56.jpg" alt="Profile">
+          </div>
+        </div>
+      </section>
 
-   <a href="https://rezka.ag/films/best/" target="_blank"> Visit this site to see any movie </a> 
+      <section class="grid">
+        <div class="card" id="about">
+          <h3>About me</h3>
+          <p class="muted">
+             Beyond my major, I engage in graphic and animation design, creative writing. Passionate about sustainability, leading  green-economy initiatives and promoting ecological awareness
+          </p>
 
-    <p style="color: rgb(255, 255, 255); font-style: italic;">1. Intersteller </p>
-    <p style="color: rgb(255, 255, 255); font-style: italic;">2. The maze runner </p>
-    <p style="color: rgb(255, 255, 255); font-style: italic;">3. Pride and prejudice </p>
+          <div style="margin-top:12px">
+            <strong>Currently learning:</strong>
+            <div class="skills-list">
+              <div class="skill">React</div>
+              <div class="skill">Node.js</div>
+              <div class="skill">Python</div>
+              <div class="skill">C++</div>
+            </div>
+          </div>
+        </div>
 
-    <h2 style="color:rgb(230,188,98); font-family: Georgia, 'Times New Roman', Times, serif;"> My moods </h2>
-    <p style="color: rgb(255, 255, 255); font-style: italic;"> Pic 1: sad</p>
-    <p style="color: rgb(255, 255, 255); font-style: italic;"> Pic 2: happy </p>
+        <div class="card" id="skills">
+          <h3>Skills</h3>
+          <div style="margin-top:10px" class="stack">
+            <div>
+              <strong class="muted">Frontend</strong>
+              <div class="muted">HTML • CSS • JavaScript</div>
+            </div>
+            <div>
+              <strong class="muted">Backend</strong>
+              <div class="muted">Node.js • Express • Databases</div>
+            </div>
+            <div>
+              <strong class="muted">Tools</strong>
+              <div class="muted">GitHub • VSCode</div>
+            </div>
+          </div>
 
-    <img src="photo_2025-11-16_17-37-05.jpg" alt="Happy" height="300px" width="300px">
+          <div style="margin-top:12px">
+            <strong>Languages</strong>
+            <div class="muted">English (C1) • Russian (B2) • Uzbek (Native)</div>
+          </div>
+        </div>
+      </section>
 
-    <img src="photo_2025-11-16_17-44-58.jpg" alt="Sad" height="300px" width="300px">
-    <h2 style="color:rgb(230,188,98); font-family: Georgia, 'Times New Roman', Times, serif;"> Fun Facts about my Neighbours </h2>
-    <p style="color: rgb(255, 255, 255); font-style: italic;"> Emily: Loves playing chess and reading books, but she is not smart hahah , just joking .</p>
-     <p style="color: rgb(255, 255, 255); font-style: italic;">Jannie : Good at any sports and looks physically fit .</p>
-<a href="https://github.com/Mooneliya/dilshoda.gidhub.io" target="_blank"> View my project on gidhub</a>
-     
+      <section style="margin-bottom:16px">
+        <h3>Projects</h3>
+        <div class="projects" id="projects">
+          <div class="proj">
+            <h4>MindLabxGIRLS</h4>
+            <p class="muted">This project aims to encourage girls to take part in social and academic activities. My team and I help them gain the skills and confidence to participate and even win in international programs..</p>
+            <div style="margin-top:10px"><a href="https://t.me/MindLabss">View</a></div>
+          </div>
+
+          <div class="proj">
+            <h4>Green economy and human capita;</h4>
+            <p class="muted">This project promotes the green economy by engaging youth aged 10–16 through educational workshops, interactive quizzes, and incentive-based activities. It aims to foster environmental awareness and introduce sustainable career pathways.</p>
+            <div style="margin-top:10px"><a href="https://t.me/naturehuman23">View</a></div>
+          </div>
+
+          <div class="proj">
+            <h4>Project Three</h4>
+            <p class="muted">Coming soon...</p>
+            <div style="margin-top:10px"><a href="#">View</a></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h3 id="contact">Contact</h3>
+        <div class="contact">
+          <form id="contactForm">
+            <input type="text" id="name" placeholder="Your name" required />
+            <input type="email" id="email" placeholder="Your email" required />
+            <textarea id="message" placeholder="Message" rows="4" required></textarea>
+            <div style="display:flex;gap:10px;align-items:center">
+              <button type="submit" class="btn">Send message</button>
+              <div class="muted">Or email me : <a href="mailto:dilshodaboboqulova07@gmail.com"> dilshodaboboqulova07@gmail.com</a></div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <footer>
+        <p>© <span id="year"></span> Your Name • Built with ❤️ • Hosted on GitHub Pages</p>
+      </footer>
+
+    </main>
+  </div>
+
+  <script>
+    // Minimal interactivity: smooth scroll and contact demo
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const href = a.getAttribute('href');
+        if(href.length > 1){
+          e.preventDefault();
+          const el = document.querySelector(href);
+          if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    });
+
+    // Simple contact form handler (no backend) — opens mailto
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const msg = document.getElementById('message').value.trim();
+      const subject = encodeURIComponent('Portfolio message from ' + name);
+      const body = encodeURIComponent('Name: '+name+'\nEmail: '+email+'\n\n'+msg);
+      window.location.href = 'mailto:you@example.com?subject='+subject+'&body='+body;
+    });
+  </script>
+
+  <!--
+    How to use:
+    1) Save this file as index.html
+    2) Replace text/images with your own content
+    3) Add resume.pdf at root if you want the Download CV link to work
+    4) Create a GitHub repo (username.github.io or any repo) and push this file
+    5) Enable GitHub Pages in repo settings to host the site
+  -->
 </body>
 </html>
