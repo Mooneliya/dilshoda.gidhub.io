@@ -14,88 +14,19 @@
 
   <style>
 
-    /* ============================= */
-/* 📱 MOBILE RESPONSIVE VERSION */
-/* ============================= */
-
-@media (max-width: 768px) {
-
-  body {
-    padding: 12px;
-  }
-
-  header {
-    flex-direction: column;
-    text-align: center;
-    gap: 14px;
-  }
-
-  nav {
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  nav .cta {
-    font-size: 13px;
-    padding: 8px 14px;
-  }
-
-  /* Hero becomes 1 column */
-  .hero {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .hero-left {
-    order: 2;
-  }
-
-  .hero-right {
-    order: 1;
-    display: flex;
-    justify-content: center;
-  }
-
-  .profile-pic {
-    width: 180px;
-    height: 180px;
-  }
-
-  .intro h2 {
-    font-size: 22px;
-  }
-
-  .meta {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .social-icons {
-    justify-content: center;
-  }
-
-  /* Cards become full width */
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* Projects 1 column */
-  .projects {
-    grid-template-columns: 1fr;
-  }
-
-  .proj {
-    text-align: center;
-  }
-
-  /* Contact form */
-  .contact input,
-  .contact textarea {
-    font-size: 14px;
-  }
-
+   /* Mobile */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .grid{grid-template-columns:1fr}
+      .projects{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:520px){}
+      body{padding:16px}
+      nav{display:flex;
+      flex-direction: column;
+    width: 100%;
+  gap: 10 px;
 }
-
     :root {
       --bg: #0f1724;
       --card: #06022c;
