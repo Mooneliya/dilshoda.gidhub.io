@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,9 +13,29 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
+
+   /* This container holds your project cards */
+.projects-container {
+  display: flex;
+  flex-direction: column; /* Stack cards vertically for mobile */
+  gap: 20px; /* Space between the cards */
+  padding: 15px;
+}
+
+/* On screens wider than 768px (Tablets and Desktops) */
+@media (min-width: 768px) {
+  .projects-container {
+    flex-direction: row; /* Switch back to side-by-side layout */
+    justify-content: space-between;
+  }
+  
+  .project-card {
+    flex: 1; /* Make each card take up equal width */
+  }
+}
     :root {
       --bg: #0f1724;
-      --card: #04012c;
+      --card: #06022c;
       --muted: #9aa4b2;
       --accent: #60a5fa;
       --accent-2: #7c3aed;
@@ -26,13 +45,45 @@
       --ff: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
 
+    /* ===== NAVBAR ===== */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+  box-shadow: 0 0 20px #0005;
+}
+
+nav .cta {
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  background: linear-gradient(90deg, #7c3aed, #a78bfa);
+  color: #09142e;
+  transition: 0.25s ease-in-out;
+  box-shadow: 0 0 10px #7c3aed55;
+}
+
+/* Glow, hover, click */
+nav .cta:hover {
+  transform: scale(1.12);
+  box-shadow: 0 0 18px #7c3aedcc, 0 0 30px #7c3aed88;
+}
+
+nav .cta:active {
+  transform: scale(1.20);
+  box-shadow: 0 0 22px #7c3aeddd, 0 0 34px #7c3aedaa;
+}
+
+
     * { box-sizing: border-box; }
     html, body { height: 100%; }
 
     body {
       margin: 0;
       font-family: var(--ff);
-      background: linear-gradient(180deg,#021238 0%, #021238 100%);
+      background: linear-gradient(180deg,#03133a 0%, #011235 100%);
       color: #e6eef8;
       line-height: 1.5;
       padding: 24px 18px;
@@ -247,7 +298,7 @@
 
         <div class="hero-right">
           <div class="profile-pic">
-            <img src="photo_2025-11-29_00-28-56.jpg" alt="Profile">
+            <img src="photo_2025-12-13_01-13-39.jpg" alt="Profile">
           </div>
         </div>
       </section>
