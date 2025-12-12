@@ -1,20 +1,22 @@
+
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dilshoda — About Me</title>
-  <meta name="description" content="Portfolio">
+  <meta name="description" content="Portfolio" />
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
     :root {
       --bg: #0f1724;
-      --card: #06022c;
+      --card: #04012c;
       --muted: #9aa4b2;
       --accent: #60a5fa;
       --accent-2: #7c3aed;
@@ -24,16 +26,18 @@
       --ff: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
 
-    * { box-sizing: border-box; margin:0; padding:0; }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
 
     body {
+      margin: 0;
       font-family: var(--ff);
-      background: linear-gradient(180deg,#03133a 0%, #011235 100%);
+      background: linear-gradient(180deg,#021238 0%, #021238 100%);
       color: #e6eef8;
       line-height: 1.5;
+      padding: 24px 18px;
       display: flex;
       justify-content: center;
-      padding: 20px;
     }
 
     .site {
@@ -41,50 +45,45 @@
       max-width: var(--max-width);
     }
 
-    a { text-decoration: none; color: var(--accent); }
+    a { color: var(--accent); text-decoration: none; }
     a:hover { opacity: 0.9; }
 
     header {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
+      justify-content: space-between;
       gap: 16px;
+      margin-bottom: 26px;
     }
 
     .brand { display: flex; gap: 12px; align-items: center; }
+
     .logo {
       width: 56px; height: 56px;
       border-radius: 12px;
       background: linear-gradient(135deg,var(--accent),var(--accent-2));
-      display: flex; justify-content:center; align-items:center;
+      display: flex; align-items: center; justify-content: center;
       font-weight: 700; color:#071023; font-size:18px;
     }
 
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
+    .brand h1 { margin: 0; font-size: 18px; }
+    .brand p { margin: 0; color: var(--muted); font-size: 13px; }
 
-    nav a.cta {
-      padding: 8px 14px;
+    nav { display: flex; gap: 18px; align-items: center; }
+    nav a { color: var(--muted); font-size: 14px; }
+    .cta {
+      padding: 8px 12px;
       border-radius: 10px;
       background: linear-gradient(90deg,var(--accent),var(--accent-2));
       color:#071023;
       font-weight:600;
-      transition: 0.25s;
-    }
-
-    nav a.cta:hover {
-      transform: scale(1.08);
     }
 
     .hero {
       display: grid;
       grid-template-columns: 1fr 320px;
       gap: 28px;
+      align-items: center;
       margin-bottom: 28px;
     }
 
@@ -96,86 +95,110 @@
     }
 
     .profile-pic {
-      width: 260px;
-      height: 260px;
+      width: 260px; height: 260px;
       border-radius: 18px;
       overflow: hidden;
+      background: linear-gradient(180deg,#fff3 0,#0000 100%);
       border:1px solid rgba(255,255,255,0.05);
-      display:flex; justify-content:center; align-items:center;
+      display: flex; align-items: center; justify-content: center;
     }
+    .profile-pic img { width: 100%; height: 100%; object-fit: cover; }
 
-    .profile-pic img { width:100%; height:100%; object-fit:cover; }
+    .intro h2 { margin: 0 0 8px; font-size: 26px; }
+    .intro p { margin: 0; color: var(--muted); }
 
-    .intro h2 { font-size:26px; margin-bottom:8px; }
-    .intro p { color: var(--muted); }
-
-    .meta {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 16px;
-    }
-
+    .meta { display: flex; gap: 12px; margin-top: 16px; }
     .pill {
+      background: var(--glass);
       padding: 8px 12px;
       border-radius: 999px;
-      background: var(--glass);
-      font-size: 13px;
       color: var(--muted);
+      font-size: 13px;
     }
 
+    /* === Social Neon Icons === */
     .social-icons {
-      display:flex;
-      gap:14px;
-      margin-top:18px;
+      display: flex;
+      gap: 14px;
+      margin-top: 20px;
     }
 
     .social-icons a {
-      display:flex; justify-content:center; align-items:center;
-      width:46px; height:46px;
-      font-size:26px;
+      font-size: 26px;
       color: var(--accent-2);
-      border-radius:50%;
+      padding: 10px;
       background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+      width: 46px;
+      height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border: 1px solid rgba(255,255,255,0.06);
       transition: 0.3s;
+      box-shadow: 0 0 10px #7c3aed55;
+      animation: pulse 2.4s infinite ease-in-out;
     }
 
-    .social-icons a:hover { transform: scale(1.15); }
+    .social-icons a:hover {
+      transform: scale(1.18);
+      box-shadow: 0 0 18px #7c3aedcc, 0 0 30px #7c3aed88;
+    }
 
-    .grid { display: grid; grid-template-columns: repeat(2,1fr); gap:18px; margin-bottom:22px; }
-    .card { padding:18px; border-radius:14px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.03); }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 10px #7c3aed55; }
+      50% { box-shadow: 0 0 18px #7c3aedaa, 0 0 30px #7c3aed55; }
+      100% { box-shadow: 0 0 10px #7c3aed55; }
+    }
 
-    .skills-list { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
-    .skill { padding: 8px 10px; background:#071428; border-radius:10px; font-size:13px; color:var(--muted); }
+    .grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; margin-bottom: 22px; }
+    .card { background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01)); padding:18px; border-radius:14px; border:1px solid rgba(255,255,255,0.03); }
+
+    .skills-list { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;}
+    .skill {
+      padding: 8px 10px;
+      border-radius: 10px;
+      background: #071428;
+      color: var(--muted);
+      font-size: 13px;
+    }
 
     .projects { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
-    .proj { padding:12px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.03); }
+    .proj { padding:12px; border-radius:12px; background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.03); }
+    .proj h4 { margin:0 0 8px; }
+    .proj p { margin:0; color:var(--muted); font-size:13px; }
 
-    .contact input, .contact textarea { width:100%; padding:12px; border-radius:10px; border:1px solid rgba(255,255,255,0.05); background:transparent; color:inherit; margin-bottom:10px; }
-
-    .btn { padding:10px 14px; border-radius:10px; border:none; background:linear-gradient(90deg,var(--accent),var(--accent-2)); font-weight:600; color:#071023; cursor:pointer; }
-
-    footer { text-align:center; color:var(--muted); font-size:13px; margin-top:20px; }
-
-    /* ===================== */
-    /* MOBILE RESPONSIVE */
-    /* ===================== */
-    @media (max-width:768px){
-      .hero { grid-template-columns:1fr; text-align:center; }
-      .hero-right { justify-content:center; }
-      .profile-pic { width:180px; height:180px; margin:auto; }
-      .intro h2 { font-size:22px; }
-      .grid { grid-template-columns:1fr; }
-      .projects { grid-template-columns:1fr; }
-      .meta { justify-content:center; }
-      .social-icons { justify-content:center; }
+    .contact { display:flex; flex-direction:column; gap:12px; }
+    input, textarea {
+      width:100%;
+      padding:12px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.05);
+      background:transparent;
+      color:inherit;
     }
 
+    .btn {
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      font-weight:600;
+      cursor:pointer;
+      color:#071023;
+    }
+
+    footer {
+      margin-top:20px;
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+    }
   </style>
 </head>
 <body>
   <div class="site">
+
     <header>
       <div class="brand">
         <div class="logo">🌙</div>
@@ -184,6 +207,7 @@
           <p class="muted">•Developer •Learner •Animation designer •Creative soul</p>
         </div>
       </div>
+
       <nav>
         <a href="#about" class="cta">About</a>
         <a href="#skills" class="cta">Skills</a>
@@ -197,23 +221,33 @@
         <div class="hero-left">
           <div class="intro">
             <h2>Hi — I'm <strong>Dilshoda</strong></h2>
-            <p class="muted">I am a Computer Science student at INHA University in Tashkent, dedicated to transforming my creative ideas into reality!</p>
+            <p class="muted">I am a Computer science student at INHA University in Tashkent, dedicated to transforming my creative ideas into reality!</p>
+
             <div class="meta">
               <div class="pill">📍 Tashkent, Uzbekistan</div>
               <div class="pill">🎓 Computer Science</div>
               <div class="pill">💼 Open to Collaboration</div>
             </div>
-            <div class="social-icons">
-              <a href="#"><i class="fa-brands fa-instagram"></i></a>
-              <a href="#"><i class="fa-brands fa-telegram"></i></a>
-              <a href="#"><i class="fa-solid fa-envelope"></i></a>
-              <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+
+            <div style="margin-top:18px;display:flex;gap:10px;align-items:center">
+              <a href="#projects" class="btn">See projects</a>
+              <a href="/resume.pdf" class="pill">Download CV</a>
             </div>
+
+            <!-- NEW SOCIAL ICONS -->
+            <div class="social-icons">
+              <a href="https://www.instagram.com/moon_eliya?igsh=c2R6Zzdycm1hanpy" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+              <a href="https://t.me/mindlabX_admin" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+              <a href="mailto:dilshodaboboqulova07@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+              <a href="https://www.linkedin.com/in/dilshoda-boboqulova-99690636b" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+
           </div>
         </div>
+
         <div class="hero-right">
           <div class="profile-pic">
-            <img src="photo.jpg" alt="Profile">
+            <img src="photo_2025-11-29_00-28-56.jpg" alt="Profile">
           </div>
         </div>
       </section>
@@ -221,52 +255,114 @@
       <section class="grid">
         <div class="card" id="about">
           <h3>About me</h3>
-          <p class="muted">Beyond my major, I engage in graphic and animation design, creative writing, and sustainability projects.</p>
+          <p class="muted">
+             Beyond my major, I engage in graphic and animation design, creative writing. Passionate about sustainability, leading green-economy initiatives and promoting ecological awareness.
+          </p>
+
+          <div style="margin-top:12px">
+            <strong>Currently learning:</strong>
+            <div class="skills-list">
+              <div class="skill">React</div>
+              <div class="skill">Node.js</div>
+              <div class="skill">Python</div>
+              <div class="skill">C++</div>
+            </div>
+          </div>
         </div>
+
         <div class="card" id="skills">
           <h3>Skills</h3>
-          <div class="skills-list">
-            <div class="skill">React</div>
-            <div class="skill">Node.js</div>
-            <div class="skill">Python</div>
-            <div class="skill">C++</div>
+          <div style="margin-top:10px" class="stack">
+            <div>
+              <strong class="muted">Frontend</strong>
+              <div class="muted">HTML • CSS • JavaScript</div>
+            </div>
+            <div>
+              <strong class="muted">Backend</strong>
+              <div class="muted">Node.js • Express • Databases</div>
+            </div>
+            <div>
+              <strong class="muted">Tools</strong>
+              <div class="muted">GitHub • VSCode</div>
+            </div>
+          </div>
+
+          <div style="margin-top:12px">
+            <strong>Languages</strong>
+            <div class="muted">English (C1) • Russian (B2) • Uzbek (Native)</div>
           </div>
         </div>
       </section>
 
-      <section class="projects" id="projects">
-        <div class="proj">
-          <h4>MindLabxGIRLS</h4>
-          <p class="muted">Encouraging girls to join social and academic activities.</p>
-        </div>
-        <div class="proj">
-          <h4>Green economy and human capital</h4>
-          <p class="muted">Promoting green economy and sustainable careers for youth.</p>
-        </div>
-        <div class="proj">
-          <h4>Project Three</h4>
-          <p class="muted">Coming soon...</p>
+      <section style="margin-bottom:16px">
+        <h3>Projects</h3>
+        <div class="projects" id="projects">
+          <div class="proj">
+            <h4>MindLabxGIRLS</h4>
+            <p class="muted">This project encourages girls to join social and academic activities. We help them develop skills and confidence to participate and succeed in international programs.</p>
+            <div style="margin-top:10px"><a href="https://t.me/MindLabss">View</a></div>
+          </div>
+
+          <div class="proj">
+            <h4>Green economy and human capital</h4>
+            <p class="muted">This project promotes green economy by engaging youth through workshops, quizzes, and activities. It fosters environmental awareness and sustainable career pathways.</p>
+            <div style="margin-top:10px"><a href="https://t.me/naturehuman23">View</a></div>
+          </div>
+
+          <div class="proj">
+            <h4>Project Three</h4>
+            <p class="muted">Coming soon...</p>
+            <div style="margin-top:10px"><a href="#">View</a></div>
+          </div>
         </div>
       </section>
 
-      <section class="card contact" id="contact">
-        <h3>Contact</h3>
-        <form>
-          <input type="text" placeholder="Your Name" required>
-          <input type="email" placeholder="Your Email" required>
-          <textarea placeholder="Message" rows="4" required></textarea>
-          <button type="submit" class="btn">Send message</button>
-        </form>
+      <section class="card">
+        <h3 id="contact">Contact</h3>
+        <div class="contact">
+          <form id="contactForm">
+            <input type="text" id="name" placeholder="Your name" required />
+            <input type="email" id="email" placeholder="Your email" required />
+            <textarea id="message" placeholder="Message" rows="4" required></textarea>
+            <div style="display:flex;gap:10px;align-items:center">
+              <button type="submit" class="btn">Send message</button>
+              <div class="muted">Or email me : <a href="mailto:dilshodaboboqulova07@gmail.com">dilshodaboboqulova07@gmail.com</a></div>
+            </div>
+          </form>
+        </div>
       </section>
 
       <footer>
-        © <span id="year"></span> Dilshoda • Built with ❤️
+        <p>© <span id="year"></span> Dilshoda • Built with ❤️ • Hosted on GitHub Pages</p>
       </footer>
+
     </main>
   </div>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const href = a.getAttribute('href');
+        if(href.length > 1){
+          e.preventDefault();
+          const el = document.querySelector(href);
+          if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    });
+
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const msg = document.getElementById('message').value.trim();
+      const subject = encodeURIComponent('Portfolio message from ' + name);
+      const body = encodeURIComponent('Name: '+name+'\nEmail: '+email+'\n\n'+msg);
+      window.location.href = 'mailto:you@example.com?subject='+subject+'&body='+body;
+    });
   </script>
+
 </body>
 </html>
